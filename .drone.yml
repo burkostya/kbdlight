@@ -5,6 +5,7 @@ steps:
 - name: build
   image: golang:1.12.7-alpine3.10
   commands:
+    - apk add git
     - go build -o kbdlight
 
 - name: publish
