@@ -6,7 +6,7 @@ steps:
   image: golang:1.12.7-alpine3.10
   commands:
     - apk add git
-    - go build -a -ldflags '-extldflags "-static"' -o kbdlight
+    - go build -a -ldflags '-linkmode external -extldflags "-static"' -o kbdlight
 
 - name: publish
   image: plugins/github-release
