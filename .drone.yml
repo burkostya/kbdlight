@@ -1,0 +1,19 @@
+kind: pipeline
+name: default
+
+steps:
+- name: build
+  image: golang:1.12.7-alpine3.10
+  commands:
+    - go build -o kbdlight
+
+- name: publish
+  image: plugins/github-release
+  settings:
+    api_key: 
+      from_secret: github_token
+    files: kdblight
+    checksum:
+      - sha512
+  when:
+    event: tag
