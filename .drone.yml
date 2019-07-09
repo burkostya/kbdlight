@@ -5,7 +5,7 @@ steps:
 - name: build
   image: golang:1.12.7-alpine3.10
   commands:
-    - apk add git
+    - apk add git gcc
     - go build -a -ldflags '-linkmode external -extldflags "-static"' -o kbdlight
 
 - name: publish
